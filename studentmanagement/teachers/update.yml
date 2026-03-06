@@ -1,0 +1,21 @@
+info:
+  name: update
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: "{{host}}/students/15271413-9b67-4d4d-a2fa-102970fed1d9"
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Ali Ahmed Edit"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,21 @@
+info:
+  name: create
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{host}}/students"
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Asem Najee"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,31 @@
+package com.example.studentmanagement.mappers;
+
+import java.util.UUID;
+
+import org.springframework.stereotype.Component;
+
+import com.example.studentmanagement.basecomponents.mapper.CRUDMapper;
+import com.example.studentmanagement.dtos.student.StudentCreate;
+import com.example.studentmanagement.dtos.student.StudentUpdate;
+import com.example.studentmanagement.entities.Student;
+
+@Component
+public class StudentMapper implements CRUDMapper<Student, UUID, StudentCreate, StudentUpdate> {
+    @Override
+    public Student toEntity(StudentCreate dto) {
+        return new Student(
+                null,
+                dto.name(),
+                dto.dateOfBirth(),
+                dto.dateOfJoin());
+    }
+
+    @Override
+    public Student toEntity(StudentUpdate dto, UUID key) {
+        return new Student(
+                key,
+                dto.name(),
+                null,
+                null);
+    }
+}

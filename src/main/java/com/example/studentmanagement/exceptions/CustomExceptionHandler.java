@@ -20,10 +20,11 @@ public class CustomExceptionHandler {
     public ResponseEntity<GeneralResponse<List<CustomErrorResponse>>> handle(Exception e){
         return handle(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
-    
-    private ResponseEntity<GeneralResponse<List<CustomErrorResponse>>> handle(String message, HttpStatus code){
+
+    public ResponseEntity<GeneralResponse<List<CustomErrorResponse>>> handle(String message, HttpStatus code){
         return handle(List.of(new CustomErrorResponse(message)), code);
     }
+
     private ResponseEntity<GeneralResponse<List<CustomErrorResponse>>> handle(List<CustomErrorResponse> errors, HttpStatus code){
         return GeneralResponse.toResponseEntity(errors, code);
     }

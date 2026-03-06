@@ -2,6 +2,9 @@ package com.example.studentmanagement.entities;
 
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -29,7 +32,7 @@ public class Subject {
     @Size(min = 2, max = 100)
     private String name;
 
-    @ManyToOne()
-    @JoinColumn(name = "teacherId")
+    @ManyToOne
+    @JsonManagedReference
     private Teacher teacher;
 }

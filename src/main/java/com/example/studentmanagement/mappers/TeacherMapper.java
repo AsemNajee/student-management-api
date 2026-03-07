@@ -10,7 +10,7 @@ import com.example.studentmanagement.dtos.teacher.TeacherUpdate;
 import com.example.studentmanagement.entities.Teacher;
 
 @Component
-public class TeacherMapper implements CRUDMapper<Teacher, UUID, TeacherCreate, TeacherUpdate>{
+public class TeacherMapper implements CRUDMapper<Teacher, TeacherCreate, TeacherUpdate>{
 
     @Override
     public Teacher toEntity(TeacherCreate dto) {
@@ -18,8 +18,9 @@ public class TeacherMapper implements CRUDMapper<Teacher, UUID, TeacherCreate, T
     }
 
     @Override
-    public Teacher toEntity(TeacherUpdate dto, UUID key) {
-        return new Teacher(key, dto.name(), null);
+    public Teacher toEntity(TeacherUpdate dto, Teacher teacher) {
+        teacher.setName(dto.name());
+        return teacher;
     }
     
 }

@@ -26,6 +26,12 @@ public class Subject {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    private double fullMark;
+    private double dailyPresentDegree;
+    private double behaviorDegree;
+    private double midTermDegree;
+    private double finalExamDegree;
+
     @NotNull
     @Size(min = 2, max = 100)
     private String name;

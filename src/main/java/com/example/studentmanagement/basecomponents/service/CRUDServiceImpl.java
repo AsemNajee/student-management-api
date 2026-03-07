@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.studentmanagement.basecomponents.mapper.CRUDMapper;
 
-public abstract class CRUDServiceImpl<E, K, C, U, R extends JpaRepository<E, K>, M extends CRUDMapper<E, K, C, U>> {
+public abstract class CRUDServiceImpl<E, K, C, U, R extends JpaRepository<E, K>, M extends CRUDMapper<E, C, U>> {
     
     @Autowired
     private R repo;
@@ -29,7 +29,8 @@ public abstract class CRUDServiceImpl<E, K, C, U, R extends JpaRepository<E, K>,
     }
 
     public E update(U entityUpdate, K key){
-        E entity = mapper.toEntity(entityUpdate, key);
+        E entity = find(key);
+        entity = mapper.toEntity(entityUpdate, entity);
         return repo.save(entity);
     }
 

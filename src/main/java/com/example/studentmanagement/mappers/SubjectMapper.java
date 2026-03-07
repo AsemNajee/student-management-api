@@ -12,13 +12,14 @@ public class SubjectMapper implements CRUDMapper<Subject, SubjectCreate, Subject
 
     @Override
     public Subject toEntity(SubjectCreate dto) {
-        return new Subject(null,
-                dto.fullMark(),
-                dto.dailyPresentDegree(),
-                dto.behaviorDegree(),
-                dto.midTermDegree(),
-                dto.finalExamDegree(),
-                dto.name(), null);
+        Subject subject = new Subject();
+        subject.setName(dto.name());
+        subject.setFullMark(dto.fullMark());
+        subject.setDailyPresentDegree(dto.dailyPresentDegree());
+        subject.setBehaviorDegree(dto.behaviorDegree());
+        subject.setMidTermDegree(dto.midTermDegree());
+        subject.setFinalExamDegree(dto.finalExamDegree());
+        return subject;
     }
 
     @Override

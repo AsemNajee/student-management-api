@@ -1,7 +1,6 @@
 package com.example.studentmanagement.entities;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.UUID;
 
 import org.hibernate.annotations.UuidGenerator;
@@ -10,7 +9,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.PastOrPresent;
@@ -27,8 +28,7 @@ import lombok.Setter;
 @Entity
 public class Student {
     @Id
-    @GeneratedValue(generator = "UUID")
-    @UuidGenerator
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @NotNull
@@ -37,6 +37,8 @@ public class Student {
 
     private String phone;
     private String fatherPhone;
+    @ManyToOne
+    private ClassRoom classRoom;
     // private List<Subject> subjects;
 
     @Past(message = "date of birth must be in past")

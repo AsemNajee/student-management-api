@@ -5,6 +5,8 @@ import java.util.UUID;
 
 import org.hibernate.annotations.UuidGenerator;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -33,8 +35,10 @@ public class Student {
     private String name;
 
     @Past(message = "date of birth must be in past")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfBirth;
 
     @PastOrPresent(message = "date of birth must be in past")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfJoin;
 }

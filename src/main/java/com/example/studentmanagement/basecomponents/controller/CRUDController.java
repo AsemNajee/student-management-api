@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.example.studentmanagement.basecomponents.service.CRUDService;
 import com.example.studentmanagement.exceptions.GeneralResponse;
 
+import jakarta.validation.Valid;
+
 public abstract class CRUDController<E, K, C, U, S extends CRUDService<E, K, C, U>> {
     @Autowired
     private S service;
@@ -32,14 +34,14 @@ public abstract class CRUDController<E, K, C, U, S extends CRUDService<E, K, C, 
     }
 
     @PostMapping
-    public ResponseEntity<GeneralResponse<E>> createOne(@RequestBody C entity) {
+    public ResponseEntity<GeneralResponse<E>> createOne(@Valid @RequestBody C entity) {
         var newEntity = service.create(entity);
         return GeneralResponse.toResponseEntity(newEntity, HttpStatus.CREATED);
     }
 
     @PutMapping("/{entityKey}")
     public ResponseEntity<GeneralResponse<E>> updateOne(
-            @RequestBody U entity,
+            @Valid @RequestBody U entity,
             @PathVariable K entityKey) {
         var newEntity = service.update(entity, entityKey);
         return GeneralResponse.toResponseEntity(newEntity, HttpStatus.OK);

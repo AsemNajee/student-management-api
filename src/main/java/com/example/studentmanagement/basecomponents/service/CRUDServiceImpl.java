@@ -10,9 +10,9 @@ import com.example.studentmanagement.basecomponents.mapper.CRUDMapper;
 public abstract class CRUDServiceImpl<E, K, C, U, R extends JpaRepository<E, K>, M extends CRUDMapper<E, C, U>> {
     
     @Autowired
-    private R repo;
+    protected R repo;
     @Autowired
-    private M mapper;
+    protected M mapper;
 
     public E find(K key){
         var entity = repo.findById(key).orElseThrow();

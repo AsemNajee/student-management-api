@@ -19,7 +19,7 @@ import jakarta.validation.Valid;
 
 public abstract class CRUDController<E, K, C, U, S extends CRUDService<E, K, C, U>> {
     @Autowired
-    private S service;
+    protected S service;
 
     @GetMapping("/{entityKey}")
     public ResponseEntity<GeneralResponse<E>> getOne(@PathVariable K entityKey) {

@@ -3,8 +3,6 @@ package com.example.studentmanagement.entities;
 import java.time.LocalDate;
 import java.util.UUID;
 
-import org.hibernate.annotations.UuidGenerator;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Entity;
@@ -39,7 +37,6 @@ public class Student {
     private String fatherPhone;
     @ManyToOne
     private ClassRoom classRoom;
-    // private List<Subject> subjects;
 
     @Past(message = "date of birth must be in past")
     @JsonFormat(pattern = "yyyy-MM-dd")

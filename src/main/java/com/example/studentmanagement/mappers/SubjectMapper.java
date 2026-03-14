@@ -14,22 +14,27 @@ public class SubjectMapper implements CRUDMapper<Subject, SubjectCreate, Subject
     public Subject toEntity(SubjectCreate dto) {
         Subject subject = new Subject();
         subject.setName(dto.name());
-        subject.setFullMark(dto.fullMark());
-        subject.setDailyPresentDegree(dto.dailyPresentDegree());
-        subject.setBehaviorDegree(dto.behaviorDegree());
-        subject.setMidTermDegree(dto.midTermDegree());
-        subject.setFinalExamDegree(dto.finalExamDegree());
+        subject.setFullFinalExam(dto.fullFinalExam());
+        subject.setFullMidTerm(dto.fullMidTerm());
+        subject.setFullPresent(dto.fullPresent());
         return subject;
     }
 
     @Override
     public Subject toEntity(SubjectUpdate dto, Subject subject) {
         subject.setName(dto.name());
-        subject.setFullMark(dto.fullMark());
-        subject.setDailyPresentDegree(dto.dailyPresentDegree());
-        subject.setBehaviorDegree(dto.behaviorDegree());
-        subject.setMidTermDegree(dto.midTermDegree());
-        subject.setFinalExamDegree(dto.finalExamDegree());
         return subject;
+    }
+
+    @Override
+    public SubjectCreate toCreateDto(Subject entity) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'toCreateDto'");
+    }
+
+    @Override
+    public SubjectUpdate toUpdateDto(Subject entity) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'toUpdateDto'");
     }
 }

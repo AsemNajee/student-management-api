@@ -28,11 +28,10 @@ public class Subject {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private double fullMark;
-    private double dailyPresentDegree;
-    private double behaviorDegree;
-    private double midTermDegree;
-    private double finalExamDegree;
+    private Double fullPresent;
+    private Double fullBehavior;
+    private Double fullMidTerm;
+    private Double fullFinalExam;
 
     @ManyToMany
     private List<ClassRoom> classRooms;

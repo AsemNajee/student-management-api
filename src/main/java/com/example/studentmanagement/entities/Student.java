@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -36,6 +37,7 @@ public class Student {
     private String phone;
     private String fatherPhone;
     @ManyToOne
+    @JsonIgnore
     private ClassRoom classRoom;
 
     @Past(message = "date of birth must be in past")

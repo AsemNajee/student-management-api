@@ -8,6 +8,10 @@ this application is managing degrees, behaviors
 - Student
 - Subject
 - Teacher
+- ClassRoom
+- DailyDegrees
+- MidTermDegree
+- FinalExamDegree
 
 ### Entities informations
 
@@ -82,3 +86,41 @@ this application is managing degrees, behaviors
 يدخل الاستاذ درجات الطلاب النصفية للاختبار وهي (الطالب ، الدرجة ، الزيادة ، حالة الغش)
 
 يدخل الاستاذ درجات الطلاب النهائية للاختبار وهي (الطالب ، الدرجة ، الزيادة ، حالة الغش)
+
+### Tests
+
+- adding
+  - classRoom
+  - subject
+  - student
+  - dailyDegree
+  - finalExamDegree
+  - midTermDegree
+- link
+  - subject <-> classRoom
+  - student <-> classRoom
+
+## plan
+
+### Daily Report
+
+| Name | present | share |
+| ---- | ------- | ----- |
+| Asem | true    | 1     |
+| Ali  | true    | 0     |
+
+### All Report
+
+| Name | present | fullpresent | increas | decrease | midTerm | fullMidTerm | finalExam | fullFinalExam |
+| ---- | ------- | ----------- | ------- | -------- | ------- | ----------- | --------- | ------------- |
+| Asem | 10      | 10          | 1       | 0        | 100     | 100         | 100       | 100           |
+| Ali  | 8       | 10          | 0       | 0        | 89      | 100         | 78        | 100           |
+
+#### EndPoints
+
+| METHOD | PATH                             | info                        |
+| ------ | -------------------------------- | --------------------------- |
+| GET    | /degrees/{subjectId}             | get all degrees for subject |
+| POST   | /degrees/{subjectId}             | insert new student degree   |
+| GET    | /degrees/{subjectId}/{studentId} | get student degree          |
+| PUT    | /degrees/{subjectId}/{studentId} | update degrees for student  |

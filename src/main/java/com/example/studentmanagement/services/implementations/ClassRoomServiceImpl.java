@@ -10,6 +10,7 @@ import com.example.studentmanagement.dtos.classRoom.ClassRoomCreate;
 import com.example.studentmanagement.dtos.classRoom.ClassRoomUpdate;
 import com.example.studentmanagement.entities.ClassRoom;
 import com.example.studentmanagement.mappers.ClassRoomMapper;
+import com.example.studentmanagement.mappers.StudentMapper;
 import com.example.studentmanagement.repositories.ClassRoomRepository;
 import com.example.studentmanagement.services.ClassRoomService;
 import com.example.studentmanagement.services.StudentService;
@@ -24,6 +25,8 @@ public class ClassRoomServiceImpl
 	private SubjectService subjectService;
 	@Autowired
 	private StudentService studentService;
+	@Autowired
+	private StudentMapper studentMapper;
 
 	public void linkWithSubject(UUID classId, UUID subjectId) {
 		var classRoom = find(classId);
@@ -42,8 +45,9 @@ public class ClassRoomServiceImpl
 	public void linkWithStudent(UUID classId, UUID studentId) {
 		var classRoom = find(classId);
 		var student = studentService.find(studentId);
-		classRoom.getStudents().add(student);
-		repo.save(classRoom);
+		student.setClassRoom(classRoom);
+		var studentCreateDto = studentMapper.toUpdateDto(student);
+		studentService.update(studentCreateDto, studentId);
 	}
 
 	public void unLinkWithStudent(UUID classId, UUID studentId) {

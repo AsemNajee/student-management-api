@@ -10,4 +10,6 @@ package com.example.studentmanagement.basecomponents.mapper;
 public interface CRUDMapper<E, C, U/* , SR, LR*/> {
     E toEntity(C dto);
     E toEntity(U dto, E entity);
+    C toCreateDto(E entity);
+    U toUpdateDto(E entity);
 }

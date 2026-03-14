@@ -1,6 +1,5 @@
 package com.example.studentmanagement.mappers;
 
-
 import org.springframework.stereotype.Component;
 
 import com.example.studentmanagement.basecomponents.mapper.CRUDMapper;
@@ -29,5 +28,24 @@ public class StudentMapper implements CRUDMapper<Student, StudentCreate, Student
         student.setDateOfBirth(dto.dateOfBirth());
         student.setDateOfJoin(dto.dateOfJoin());
         return student;
+    }
+
+    public StudentCreate toCreateDto(Student student) {
+        return new StudentCreate(
+                student.getName(),
+                student.getDateOfBirth(),
+                student.getDateOfJoin(),
+                student.getPhone(),
+                student.getFatherPhone());
+    }
+
+    @Override
+    public StudentUpdate toUpdateDto(Student entity) {
+        return new StudentUpdate(
+                entity.getName(),
+                entity.getDateOfBirth(),
+                entity.getDateOfJoin(),
+                entity.getPhone(),
+                entity.getFatherPhone());
     }
 }

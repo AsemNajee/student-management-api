@@ -22,5 +22,17 @@ public class ClassRoomMapper implements CRUDMapper<ClassRoom, ClassRoomCreate, C
         entity.setName(dto.name());
         return entity;
     }
+
+    @Override
+    public ClassRoomCreate toCreateDto(ClassRoom entity) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'toCreateDto'");
+    }
+
+    @Override
+    public ClassRoomUpdate toUpdateDto(ClassRoom entity) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'toUpdateDto'");
+    }
     
 }

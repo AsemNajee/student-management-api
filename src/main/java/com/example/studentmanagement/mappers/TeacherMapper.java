@@ -21,5 +21,17 @@ public class TeacherMapper implements CRUDMapper<Teacher, TeacherCreate, Teacher
         teacher.setName(dto.name());
         return teacher;
     }
+
+    @Override
+    public TeacherCreate toCreateDto(Teacher entity) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'toCreateDto'");
+    }
+
+    @Override
+    public TeacherUpdate toUpdateDto(Teacher entity) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'toUpdateDto'");
+    }
     
 }

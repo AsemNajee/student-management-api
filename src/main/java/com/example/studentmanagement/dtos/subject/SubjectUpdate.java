@@ -10,5 +10,6 @@ public record SubjectUpdate(
         UUID teacherId,
         @Positive Double fullMidTerm,
         @Positive Double fullFinalExam,
+        @Positive Double fullBehavior,
         @Positive Double fullPresent) {
 }

@@ -20,16 +20,20 @@ public class DegreeMapper implements CRUDMapper<Degree, DegreeCreate, DegreeUpda
         degree.setPresent(dto.present());
         degree.setDecrease(dto.decrease());
         degree.setIncrease(dto.increase());
+        degree.setBehavior(dto.behavior());
         degree.setMidTerm(dto.midTerm());
         degree.setFinalExam(dto.finalExam());
         return degree;
     }
-
+    
     @Override
     public Degree toEntity(DegreeUpdate dto, Degree entity) {
         Student student = new Student();
         student.setId(dto.studentId());
         entity.setStudent(student);
+        if(dto.behavior() != null){
+            entity.setBehavior(dto.behavior());
+        }
         if (dto.midTerm() != null) {
             entity.setMidTerm(dto.midTerm());
         }

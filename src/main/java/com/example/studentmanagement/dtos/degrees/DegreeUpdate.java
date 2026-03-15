@@ -11,5 +11,6 @@ public record DegreeUpdate(
         @Positive Double increase,
         @Positive Double decrease,
         @Positive Double midTerm,
+        @Positive Double behavior,
         @Positive Double finalExam) {
 }

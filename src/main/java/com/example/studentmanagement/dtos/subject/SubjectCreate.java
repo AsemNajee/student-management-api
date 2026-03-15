@@ -12,5 +12,6 @@ public record SubjectCreate(
         // UUID classId,
         @Positive Double fullMidTerm,
         @Positive Double fullFinalExam,
+        @Positive Double fullBehavior,
         @Positive Double fullPresent) {
 }

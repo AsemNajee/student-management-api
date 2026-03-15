@@ -17,12 +17,17 @@ public class SubjectMapper implements CRUDMapper<Subject, SubjectCreate, Subject
         subject.setFullFinalExam(dto.fullFinalExam());
         subject.setFullMidTerm(dto.fullMidTerm());
         subject.setFullPresent(dto.fullPresent());
+        subject.setFullBehavior(dto.fullBehavior());
         return subject;
     }
 
     @Override
     public Subject toEntity(SubjectUpdate dto, Subject subject) {
         subject.setName(dto.name());
+        subject.setFullFinalExam(dto.fullFinalExam());
+        subject.setFullMidTerm(dto.fullMidTerm());
+        subject.setFullPresent(dto.fullPresent());
+        subject.setFullBehavior(dto.fullBehavior());
         return subject;
     }
 

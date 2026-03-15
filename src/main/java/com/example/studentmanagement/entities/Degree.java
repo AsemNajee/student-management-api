@@ -30,18 +30,13 @@ public class Degree {
     @Positive
     private Double present;
     @Positive
-    private Double fullPresent;
-    
-    @Positive
     private Double increase;
     @Positive
     private Double decrease;
     @Positive
     private Double midTerm;
     @Positive
-    private Double fullMidTerm;
-    @Positive
     private Double finalExam;
     @Positive
-    private Double fullFinalExam;
+    private Double behavior;
 }

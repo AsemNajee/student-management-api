@@ -11,5 +11,6 @@ public record DegreeCreate(
         @Positive Double increase,
         @Positive Double decrease,
         @NotNull @Positive Double midTerm,
+        @NotNull @Positive Double behavior,
         @NotNull @Positive Double finalExam) {
 }
